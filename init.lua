@@ -135,7 +135,7 @@ function _M.populateAltTabTable()
 		for ci = 1, #clients do
 			for ti = 1, #_M.altTabTable do
 				if _M.altTabTable[ti].client == clients[ci] then
-					_M.altTabTable[ti].client.opacity = _M.altTabTable[ti].opacity
+					-- _M.altTabTable[ti].client.opacity = _M.altTabTable[ti].opacity
 					_M.altTabTable[ti].client.minimized = _M.altTabTable[ti].minimized
 					break
 				end
@@ -177,7 +177,7 @@ function _M.clientOpacity()
 	local opacity = _M.settings.client_opacity_value
 	if opacity > 1 then opacity = 1 end
 	for i,data in pairs(_M.altTabTable) do
-		data.client.opacity = opacity
+		-- data.client.opacity = opacity
 	end
 
 	if client.focus == _M.altTabTable[_M.altTabIndex].client then
@@ -193,7 +193,7 @@ function _M.clientOpacity()
 		if opacitySelected > 1 then opacitySelected = 1 end
 
 		client.focus.opacity = opacityFocus
-		_M.altTabTable[_M.altTabIndex].client.opacity = opacitySelected
+		-- _M.altTabTable[_M.altTabIndex].client.opacity = opacitySelected
 	end
 end
 
@@ -481,7 +481,7 @@ function _M.switch(dir, mod_key1, release_key, mod_key2, key_switch)
 
 					if key == "Escape" then
 						for i = 1, #_M.altTabTable do
-							_M.altTabTable[i].client.opacity = _M.altTabTable[i].opacity
+							-- _M.altTabTable[i].client.opacity = _M.altTabTable[i].opacity
 							_M.altTabTable[i].client.minimized = _M.altTabTable[i].minimized
 						end
 					else
@@ -505,12 +505,12 @@ function _M.switch(dir, mod_key1, release_key, mod_key2, key_switch)
 							if i ~= _M.altTabIndex and _M.altTabTable[i].minimized then
 								_M.altTabTable[i].client.minimized = true
 							end
-							_M.altTabTable[i].client.opacity = _M.altTabTable[i].opacity
+							-- _M.altTabTable[i].client.opacity = _M.altTabTable[i].opacity
 						end
 					end
 
 					keygrabber.stop()
-				
+
 				elseif key == key_switch and event == "press" then
 					if gears.table.hasitem(mod, mod_key2) then
 						-- Move to previous client on Shift-Tab

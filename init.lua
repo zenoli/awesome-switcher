@@ -10,6 +10,7 @@ local gears = require("gears")
 local timer = gears.timer
 local client = client
 awful.client = require('awful.client')
+local beautiful = require("beautiful")
 
 local naughty = require("naughty")
 local string = string
@@ -28,7 +29,7 @@ local _M = {}
 
 _M.settings = {
 	preview_box = true,
-	preview_box_bg = "#ddddddaa",
+	preview_box_bg = beautiful.bg_normal,
 	preview_box_border = "#22222200",
 	preview_box_fps = 30,
 	preview_box_delay = 150,
@@ -45,8 +46,8 @@ _M.settings = {
 }
 
 -- Create a wibox to contain all the client-widgets
-_M.preview_wbox = wibox({ width = screen[mouse.screen].geometry.width })
-_M.preview_wbox.border_width = 3
+_M.preview_wbox = wibox({ width = screen[mouse.screen].geometry.width, type="dock" })
+_M.preview_wbox.border_width = 0
 _M.preview_wbox.ontop = true
 _M.preview_wbox.visible = false
 
